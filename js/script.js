@@ -1,10 +1,9 @@
-let humanScore = 0;
-let computerScore = 0;
-
-let playRound = (human, computer) => {
+let playRound = () => {
    //declaring variables
    let message;
    let computerChoice;
+   let human = 0;
+   let computer = 0;
 
    //Getting human choice from prompt
    let humanChoice = prompt(`Please enter rock, paper or scissors`);
@@ -27,41 +26,61 @@ let playRound = (human, computer) => {
 
    //Assign computer choice to variable
    computerChoice = getComputerChoice();
-   console.log(computerChoice);
 
    //Conditional to decide the winner
    if (humanChoice.toLowerCase() === computerChoice) {
-      message = `it's a tie!`;
-      human++;
-      computer++;
+      message = `it's a tie this round!`;
+      human = 1;
+      computer = 1;
    } else if (humanChoice.toLowerCase() === `rock` && computerChoice === `scissors`) {
-      message = `You Win, rock beats scissors!`;
-      human++;
+      message = `You win this round, rock beats scissors!`;
+      human = 1;
    } else if (humanChoice.toLowerCase() === `scissors` && computerChoice === `paper`) {
-      message = `You Win, scissors beats paper!`;
-      human++;
+      message = `You win this round, scissors beats paper!`;
+      human = 1;
    } else if (humanChoice.toLowerCase() === `paper` && computerChoice === `rock`) {
-      message = `You Win, paper beats rock!`;
-      human++;
+      message = `You win this round, paper beats rock!`;
+      human = 1;
    } else if (humanChoice.toLowerCase() === `rock` && computerChoice === `paper`) {
-      message = `You lose, paper beats rock!`;
-      computer++;
+      message = `You lose this round, paper beats rock!`;
+      computer = 1;
    } else if (humanChoice.toLowerCase() === `scissors` && computerChoice === `rock`) {
-      message = `You lose, rock beats scissors!`;
-      computer++;
+      message = `You lose this round, rock beats scissors!`;
+      computer = 1;
    } else if (humanChoice.toLowerCase() === `paper` && computerChoice === `scissors`) {
-      message = `You lose, scissors beats paper!`;
-      computer++;
+      message = `You lose this round, scissors beats paper!`;
+      computer = 1;
    }
 
    alert(message);
-
    return [human, computer];
 }
 
-let scores = playRound(humanScore, computerScore);
-humanScore = humanScore + scores[0];
-computerScore = computerScore + scores[1];
+//Full game function
+let playGame = () => {
+   let humanScore = 0;
+   let computerScore = 0;
+   let scores;
 
-console.log(humanScore);
-console.log(computerScore);
+   for (let i = 0; i <= 4; i++) {
+      if (i <= 4) {
+         scores = playRound();
+         humanScore = humanScore + scores[0];
+         computerScore = computerScore + scores[1];
+         scores = [];
+      } else if (i === 5) {
+         break;
+      }
+   }
+
+   if (humanScore === computerScore) {
+      alert(`Overall, It's a tie!`);
+   } else if (humanScore > computerScore) {
+      alert(`You are the WINNER!!`);
+   } else if (humanScore < computerScore) {
+      alert(`Game over, you lost...`);
+   }
+}
+
+//Initialize game
+playGame();
