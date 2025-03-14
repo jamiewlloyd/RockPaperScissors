@@ -7,7 +7,6 @@ let playRound = () => {
 
    //Getting human choice from prompt
    let humanChoice = prompt(`Please enter rock, paper or scissors`);
-   console.log(humanChoice);
 
    //function to get random computer choice
    let getComputerChoice = (choice) => {
