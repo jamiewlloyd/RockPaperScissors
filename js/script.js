@@ -67,10 +67,14 @@ let playGame = () => {
          humanScore = humanScore + scores[0];
          computerScore = computerScore + scores[1];
          scores = [];
+         console.log(`Your current score: ${humanScore}`)
+         console.log(`Computer's current score: ${computerScore}`)
       } else if (i === 5) {
          break;
       }
    }
+
+   console.log(`Final Score. You: ${humanScore} Computer: ${computerScore}`)
 
    if (humanScore === computerScore) {
       alert(`Overall, It's a tie!`);
