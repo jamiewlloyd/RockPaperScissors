@@ -9,7 +9,7 @@
 
 h1 {
    font-size: 120px;
-   margin: 0 0 70px 0;
+   margin: 20px 0 70px 0;
 }
 
 h2 {
@@ -26,7 +26,7 @@ button {
 }
 
 #rock {
-   background-color: #6db8c8;
+   background-color: #f7b778;
 }
 
 #paper {
@@ -65,4 +65,31 @@ button {
 
 .result {
    margin: 30px;
+}
+
+#game-end {
+   /* opacity: 0.9; */
+   background-color: #495582;
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0px;
+   left: 0px;
+   z-index: 1000;
+   color: white;
+   text-align: center;
+}
+
+#game-end-message {
+   font-size: 80px;
+}
+
+.hide {
+   display: none
+}
+
+.display {
+   display: grid;
+   align-items: center;
+   justify-items: center;
 }

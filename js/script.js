@@ -18,6 +18,8 @@ let playRound = (button) => {
    let liveText = document.querySelector('#live-text');
    let liveHumanScore = document.querySelector('#human-result');
    let liveComputerScore = document.querySelector('#computer-result');
+   let gameEnd = document.querySelector('#game-end');
+   let gameEndMessage = document.querySelector('#game-end-message');
 
    //Getting human choice from prompt
    let humanChoice = button;
@@ -72,15 +74,30 @@ let playRound = (button) => {
 
    if (rounds === 5) {
       if (human === computer) {
-         message = `Overall, It's a tie!`;
+         message = `It's a tie! 👔<br>Click anywhere to play again.`;
       } else if (human > computer) {
-         message = `You are the WINNER!!`;
+         message = `You are the WINNER!! 👑<br>Click anywhere to play again.`;
       } else if (human < computer) {
-         message = `Game over, you lost...`;
+         message = `Game Over... you lost! 😢<br>Click anywhere to play again.`;
       }
-      liveText.textContent = message;
-      human = 0;
-      computer = 0;
-      rounds = 1;
+      gameEndMessage.innerHTML = message;
+      gameEnd.classList.toggle('display');
+      gameEnd.classList.toggle('hide');
+      gameEndMessage.classList.toggle('hide');
+
+      function resetGame() {
+         human = 0;
+         computer = 0;
+         rounds = 1;
+         liveHumanScore.textContent = human;
+         liveComputerScore.textContent = computer;
+         liveText.textContent = 'Click a button to begin!';
+         gameEnd.removeEventListener("click", resetGame);
+         gameEnd.classList.toggle('hide');
+         gameEnd.classList.toggle('display');
+         gameEndMessage.classList.toggle('hide');
+      }
+
+      gameEnd.addEventListener("click", resetGame);
    }
 }
