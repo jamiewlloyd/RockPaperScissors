@@ -1,4 +1,4 @@
-let playRound = () => {
+let playRound = (button) => {
    //declaring variables
    let message;
    let computerChoice;
@@ -6,7 +6,7 @@ let playRound = () => {
    let computer = 0;
 
    //Getting human choice from prompt
-   let humanChoice = prompt(`Please enter rock, paper or scissors`);
+   let humanChoice = button;
 
    //function to get random computer choice
    let getComputerChoice = (choice) => {
@@ -55,35 +55,43 @@ let playRound = () => {
    return [human, computer];
 }
 
-//Full game function
-let playGame = () => {
-   let humanScore = 0;
-   let computerScore = 0;
-   let scores;
+// //Full game function
+// let playGame = () => {
+//    let humanScore = 0;
+//    let computerScore = 0;
+//    let scores;
 
-   for (let i = 0; i <= 4; i++) {
-      if (i <= 4) {
-         scores = playRound();
-         humanScore = humanScore + scores[0];
-         computerScore = computerScore + scores[1];
-         scores = [];
-         console.log(`Your current score: ${humanScore}`)
-         console.log(`Computer's current score: ${computerScore}`)
-      } else if (i === 5) {
-         break;
-      }
-   }
+//    for (let i = 0; i <= 4; i++) {
+//       if (i <= 4) {
+//          scores = playRound();
+//          humanScore = humanScore + scores[0];
+//          computerScore = computerScore + scores[1];
+//          scores = [];
+//          console.log(`Your current score: ${humanScore}`)
+//          console.log(`Computer's current score: ${computerScore}`)
+//       } else if (i === 5) {
+//          break;
+//       }
+//    }
 
-   console.log(`Final Score. You: ${humanScore} Computer: ${computerScore}`)
+//    console.log(`Final Score. You: ${humanScore} Computer: ${computerScore}`)
 
-   if (humanScore === computerScore) {
-      alert(`Overall, It's a tie!`);
-   } else if (humanScore > computerScore) {
-      alert(`You are the WINNER!!`);
-   } else if (humanScore < computerScore) {
-      alert(`Game over, you lost...`);
-   }
-}
+//    if (humanScore === computerScore) {
+//       alert(`Overall, It's a tie!`);
+//    } else if (humanScore > computerScore) {
+//       alert(`You are the WINNER!!`);
+//    } else if (humanScore < computerScore) {
+//       alert(`Game over, you lost...`);
+//    }
+// }
 
-//Initialize game
-playGame();
+// //Initialize game
+// playGame();
+
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach((button) => {
+   button.addEventListener("click", () => {
+      playRound(button.id);
+   });
+});
