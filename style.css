@@ -1,0 +1,68 @@
+#grid-wrapper {
+   width: 100%;
+   display: grid;
+   justify-items: center;
+   font-family: "Kirang Haerang", system-ui;
+   font-weight: 400;
+   font-style: normal;
+}
+
+h1 {
+   font-size: 120px;
+   margin: 0 0 70px 0;
+}
+
+h2 {
+   font-size: 50px;
+   margin: 0 auto;
+}
+
+button {
+   border-style: none;
+   border-radius: 10%;
+   padding: 20px;
+   margin: 50px;
+   cursor: pointer;
+}
+
+#rock {
+   background-color: #6db8c8;
+}
+
+#paper {
+   background-color: #c17ecd;
+}
+
+#scissors {
+   background-color: #6dc89d;
+}
+
+#live-text {
+   margin: 50px;
+}
+
+.button-img {
+   height: 200px;
+}
+
+.identity-img {
+   height: 350px;
+}
+
+#scores {
+   width: 1000px;
+   max-width: 1000px;
+   display: grid;
+   justify-items: center;
+   grid-template-columns: 1fr 1fr;
+}
+
+.sub-score {
+   width: 100%;
+   display: grid;
+   justify-items: center;
+}
+
+.result {
+   margin: 30px;
+}

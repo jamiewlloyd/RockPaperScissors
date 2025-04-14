@@ -14,18 +14,24 @@
 </head>
 
 <body>
-   <div id="buttons">
-      <button id="rock" class="game-button">Rock</button>
-      <button id="paper" class="game-button">Paper</button>
-      <button id="scissors" class="game-button">Scissors</button>
-   </div>
-   <div id="socres">
-      <p id="live-text">Click a button to begin!</p>
-      <h2 class="score-title">Current Score</h2>
-      <h3 class="identifier">You</h3>
-      <h3 class="identifier">AI</h3>
-      <p id="human-result" class="result"></p>
-      <p id="computer-result" class="result"></p>
+   <div id="grid-wrapper">
+      <h1>Rock Paper Scissors</h1>
+      <div id="buttons">
+         <button id="rock" class="game-button"><img class="button-img" src="./images/rock.png" alt=""></button>
+         <button id="paper" class="game-button"><img class="button-img" src="./images/paper.png" alt=""></button>
+         <button id="scissors" class="game-button"><img class="button-img" src="./images/scissors.png" alt=""></button>
+      </div>
+      <h2 id="live-text">Click a button to begin!</h2>
+      <div id="scores">
+         <div class="sub-score">
+            <img class="identity-img" src="./images/person.png" alt="">
+            <h2 id="human-result" class="result">0</h2>
+         </div>
+         <div class="sub-score">
+            <img class="identity-img" src="./images/robot.png" alt="">
+            <h2 id="computer-result" class="result">0</h2>
+         </div>
+      </div>
    </div>
    <script type="text/javascript" src="./js/script.js"></script>
 </body>
